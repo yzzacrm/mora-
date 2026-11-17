@@ -1346,9 +1346,10 @@
       const cb = Math.round(208 + (23 - 208) * progress);
 
       // Continuous Lerp text: Deep Ink #171220 (23, 18, 32) -> Bone White #f6f3ef (246, 243, 239)
-      const tr = Math.round(36 + (247 - 36) * progress);
-      const tg = Math.round(12 + (242 - 12) * progress);
-      const tb = Math.round(23 + (236 - 23) * progress);
+      const dk = progress < 0.42;
+      const tr = dk ? 36 : 247;
+      const tg = dk ? 12 : 242;
+      const tb = dk ? 23 : 236;
 
       document.documentElement.style.setProperty("--fd-color", `rgb(${cr}, ${cg}, ${cb})`);
       document.documentElement.style.setProperty("--fd-text", `rgb(${tr}, ${tg}, ${tb})`);
